@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Send a message
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card bg-dark" data-bs-theme="dark">
+                <h5 class="card-header">Send a message to another user</h5>
+                <div class="card-body">
+                    <form action="/send" method="post">
+                        <div class="mb-3">
+                            <input autocomplete="off" autofocus class="form-control" id="recipient" name="recipient" placeholder="Recipient" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" id="message" name="message" placeholder="Type your message here..." type="text"></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card bg-dark" data-bs-theme="dark">
+                <h5 class="card-header">Register</h5>
+                <div class="card-body">
+                    <form action="/register" method="post">
+                        <div class="mb-3">
+                            <input autocomplete="off" autofocus class="form-control" id="username" name="username" placeholder="Username" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" id="password" name="password" placeholder="Password" type="password">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" id="password" name="confirmation" placeholder="Repeat Password" type="password">
+                        </div>
+                        <button class="btn btn-primary" type="submit">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Inbox
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card bg-dark" data-bs-theme="dark">
+                    <h5 class="card-header">Welcome to your inbox, {{ session["username"] }}</h5>
+                    <div class="card-body">
+                        Below you will find your messages
+                    </div>
+                </div>
+                {% if conversations %}
+                {% for conversation in conversations %}
+                <div class="card bg-dark mt-3" data-bs-theme="dark">
+                    <h5 class="card-header">Message from: {{ conversation["senderusername"]}}</h5>
+                    <div class="card-body">
+                        {{ conversation["message"]}}
+                    </div>
+                    <div class="card-footer text-muted">
+                        {{ conversation["datetime"] }}
+                        <form action="/delete" method="post">
+                            <input hidden name="messageid" value="{{ conversation['id'] }}" type="number">
+                            <button class="btn btn-danger mt-2" type="submit">Delete</button>
+                        </form>
+                      </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="card bg-dark mt-3" data-bs-theme="dark">
+                    <div class="card-body">
+                        You currently have 0 messages.
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

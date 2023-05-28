@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error: {{ message }}
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card bg-dark" data-bs-theme="dark">
+                <div class="card-body">
+                    <p>There was an error: {{ message }}</p>
+                    <form action="/">
+                        <button class="btn btn-danger" type="submit">Go home</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
